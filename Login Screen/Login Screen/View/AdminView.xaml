@@ -1,0 +1,175 @@
+﻿<Window x:Class="Login_Screen.View.AdminView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:Login_Screen.View"
+        mc:Ignorable="d"
+        Title="AdminView" Height="750" Width="1200"
+        WindowStartupLocation="CenterScreen" WindowStyle="None" Background="Transparent" AllowsTransparency="True" >
+
+    <Border CornerRadius="50" MouseDown="Border_MouseDown">
+
+        <Border.Background>
+            <ImageBrush ImageSource="/Images/BG3.png" />
+
+        </Border.Background>
+        <Border CornerRadius="5" BorderThickness="1" Opacity="0.95">
+
+            <Grid>
+                <!--<Border Background="#1C1D31" CornerRadius="50"/>-->
+
+                <ListView x:Name="InformationList" Margin="500 130 10 0" Height="500" VerticalAlignment="Top" Background="LightGray" FontSize="12" FontWeight="SemiBold" >
+                    <ListView.View>
+                        <GridView>
+                            <GridViewColumn Header="Id" Width="30" DisplayMemberBinding="{Binding Id}"/>
+                            <GridViewColumn Header="First Name" Width="150" DisplayMemberBinding="{Binding FName}"/>
+                            <GridViewColumn Header="Last Name" Width="150" DisplayMemberBinding="{Binding LName}"/>
+                            <GridViewColumn Header="Gender" Width="80" DisplayMemberBinding="{Binding gender}"/>
+                            <GridViewColumn Header="Date of Birth" Width="100" DisplayMemberBinding="{Binding dob}"/>
+                            <GridViewColumn Header="Age" Width="60" DisplayMemberBinding="{Binding age}"/>
+                            <GridViewColumn Header="Address" Width="200" DisplayMemberBinding="{Binding address}"/>
+                            <GridViewColumn Header="Email" Width="150" DisplayMemberBinding="{Binding email}"/>
+                            <GridViewColumn Header="Mobile No." Width="120" DisplayMemberBinding="{Binding mob}"/>
+                            <GridViewColumn Header="Password" Width="120" DisplayMemberBinding="{Binding TeacherPass}"/>
+
+                        </GridView>
+                    </ListView.View>
+                </ListView>
+                <!--<TextBlock TextWrapping="Wrap" HorizontalAlignment="Left" Text="...Teacher Details..." Margin="669,10,0,785" FontSize="40" FontWeight="UltraBlack" Foreground="Black" Background="LightBlue" Height="55" MaxWidth="1600"/>-->
+                <TextBlock TextWrapping="Wrap" TextAlignment="Center" HorizontalAlignment="Stretch" VerticalAlignment="Top" Text="Teacher Details" Margin="0,40,0,10" FontSize="40" FontWeight="UltraBlack" Foreground="Black" Background="LightBlue" Height="55"/>
+
+                <TextBlock HorizontalAlignment="Left" Margin="47,115,0,0" TextWrapping="Wrap" Text="First Name" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,165,0,0" TextWrapping="Wrap" Text="Last Name" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,215,0,0" TextWrapping="Wrap" Text="Gender" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,265,0,0" TextWrapping="Wrap" Text="Date of Birth" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,315,0,0" TextWrapping="Wrap" Text="Age" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,365,0,0" TextWrapping="Wrap" Text="Address" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,465,0,0" TextWrapping="Wrap" Text="Email" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,515,0,0" TextWrapping="Wrap" Text="Mobile No." VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+                <TextBlock HorizontalAlignment="Left" Margin="47,565,0,0" TextWrapping="Wrap" Text="Password" VerticalAlignment="Top" Foreground="White" Style="{StaticResource text}"/>
+
+                <TextBox x:Name="fnametxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.FName}" HorizontalAlignment="Left" Margin="207,115,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="lnametxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.LName}" HorizontalAlignment="Left" Margin="207,165,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="250" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <!--<TextBox x:Name="dobtxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.dob}" HorizontalAlignment="Left" Margin="207,265,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>-->
+                <DatePicker x:Name="dobDatePicker" SelectedDate="{Binding ElementName=InformationList, Path=SelectedItem.dob}" HorizontalAlignment="Left" Margin="207,265,0,0" VerticalAlignment="Top" Width="120" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="agetxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.age}" HorizontalAlignment="Left" Margin="207,315,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="100" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="addresstxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.address}" HorizontalAlignment="Left" Margin="207,365,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="250" Height="80" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="emaitxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.email}" HorizontalAlignment="Left" Margin="207,465,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="180" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="mobtxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.mob}" HorizontalAlignment="Left" Margin="207,515,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="150" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <TextBox x:Name="passtxt" Text="{Binding ElementName=InformationList, Path=SelectedItem.TeacherPass}" HorizontalAlignment="Left" Margin="207,565,0,0" TextWrapping="Wrap"  VerticalAlignment="Top" Width="150" FontSize="14" Foreground="Black" FontWeight="SemiBold"/>
+                <StackPanel Margin="0,-1,0,1">
+                    <RadioButton x:Name="female" Content="Female" Foreground="White" GroupName="Options" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Left" Margin="210,223,0,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+                    <RadioButton x:Name="male" Content="Male" Foreground="White" GroupName="Options" FontSize="14" FontWeight="SemiBold" HorizontalAlignment="Center" Margin="20,-17,500,0" VerticalAlignment="Top" Checked="RadioButton_Checked"/>
+                </StackPanel>
+
+                <Button x:Name="createbtn" Content="Create" FontSize="22" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Left" Margin="297,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="createbtn_Click" Style="{StaticResource circleButton}"/>
+            
+            <Button x:Name="updatebtn" Content="Update" FontSize="22" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Left" Margin="453,682,0,0" VerticalAlignment="Top"  Width="100" Height="45" Click="updatebtn_Click" Style="{StaticResource circleButton}"/>
+            <Button x:Name="dltebtn" Content="Delete" FontSize="22" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Left" Margin="614,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="dltebtn_Click" Style="{StaticResource circleButton}"/>
+            <Button x:Name="logoutbtn" Content="Logout" FontSize="22" FontWeight="Bold" Foreground="Black" HorizontalAlignment="Left" Margin="775,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="logoutbtn_Click" Style="{StaticResource circleButton}"/>
+                <!-- Create Button 
+                <Button x:Name="createbtn" Content="Create" FontSize="16" FontWeight="Bold" Foreground="Black" Background="LightCoral" HorizontalAlignment="Left" Margin="297,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="createbtn_Click">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="Black"/>
+                    </Button.BorderBrush>
+                    <Button.BorderThickness>
+                        <Thickness>2</Thickness>
+                    </Button.BorderThickness>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>-->
+                <!--<Button x:Name="createbtn" Content="Create" FontSize="16" FontWeight="Bold" Foreground="Black" Background="LightCoral" HorizontalAlignment="Left" Margin="297,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="createbtn_Click">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="Black"/>
+                    </Button.BorderBrush>
+                    <Button.BorderThickness>
+                        <Thickness>2</Thickness>
+                    </Button.BorderThickness>
+                    <Button.Style>
+                        <Style TargetType="{x:Type Button}">
+                            <Setter Property="Template">
+                                <Setter.Value>
+                                    <ControlTemplate TargetType="{x:Type Button}">
+                                        <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                            <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                                        </Border>
+                                    </ControlTemplate>
+                                </Setter.Value>
+                            </Setter>
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="Red" />
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
+
+
+                 Update Button 
+                <Button x:Name="updatebtn" Content="Update" FontSize="16" FontWeight="Bold" Foreground="Black" Background="LightGreen" HorizontalAlignment="Left" Margin="453,682,0,0" VerticalAlignment="Top"  Width="100" Height="45" Click="updatebtn_Click">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="Black"/>
+                    </Button.BorderBrush>
+                    <Button.BorderThickness>
+                        <Thickness>2</Thickness>
+                    </Button.BorderThickness>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                            
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                 Delete Button 
+                <Button x:Name="dltebtn" Content="Delete" FontSize="16" FontWeight="Bold" Foreground="Black" Background="LightSkyBlue" HorizontalAlignment="Left" Margin="614,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="dltebtn_Click">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="Black"/>
+                    </Button.BorderBrush>
+                    <Button.BorderThickness>
+                        <Thickness>2</Thickness>
+                    </Button.BorderThickness>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                 Logout Button
+                <Button x:Name="logoutbtn" Content="Logout" FontSize="16" FontWeight="Bold" Foreground="Black" Background="LightPink" HorizontalAlignment="Left" Margin="1014,682,0,0" VerticalAlignment="Top" Width="100" Height="45" Click="logoutbtn_Click">
+                    <Button.BorderBrush>
+                        <SolidColorBrush Color="Black"/>
+                    </Button.BorderBrush>
+                    <Button.BorderThickness>
+                        <Thickness>2</Thickness>
+                    </Button.BorderThickness>
+                    <Button.Template>
+                        <ControlTemplate TargetType="{x:Type Button}">
+                            <Border CornerRadius="10" Background="{TemplateBinding Background}" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}">
+                                <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                            </Border>
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>-->
+
+
+
+
+
+            </Grid>
+        </Border>
+
+    </Border>
+</Window>
