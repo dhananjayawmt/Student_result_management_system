@@ -18,6 +18,7 @@ To get started with the project, follow these steps:
    ```
    git clone https://github.com/your-username/student-management-system.git
    ```
+   
 
 2. Open the solution file `Login Screen.sln` in Visual Studio or your preferred C# development environment.
 
